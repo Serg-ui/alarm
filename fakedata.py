@@ -19,16 +19,10 @@ def fake_users():
     return users
 
 
-
-
-
 session = SessionLocal()
 
 session.add_all(fake_users())
 session.commit()
 
-
 for instance in session.query(User).order_by(User.id):
     print(instance.name)
-
-

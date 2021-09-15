@@ -26,13 +26,14 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
     return user
 
 
-@router.post(path='/', response_model=int)
+@router.post(path='/')
 def create_user(new_user: CreateUserScheme, db: Session = Depends(get_db)):
     user = User(**new_user.dict())
     db.add(user)
     db.commit()
+    db.refresh(user)
 
-    return user.id
+    return user
 
 
 @router.put(path='/')
