@@ -1,0 +1,6 @@
+uvicorn==0.15.0
+fastapi==0.68.1
+psycopg2==2.9.1
+SQLAlchemy==1.4.23
+Faker==8.12.1
+alembic
